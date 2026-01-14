@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 import streamlit as st
-from langchain_core.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate , load_prompt
 
 model = ChatOllama(model="llama3")
 
@@ -30,6 +30,9 @@ Ensure the summary is clear, accurate, and aligned with the provided style and l
  input_variables=["paper_input", "style_input", "length_input"])
 
 
+#template = load_prompt("2.Prompts/research_paper_summary_template.json")
+
+
 
 #fill the prompt template with user inputs
 prompt =template.invoke({
@@ -43,5 +46,15 @@ prompt =template.invoke({
 if st.button("Search"):
     result = model.invoke(prompt)
     st.write(result.content)
+
+
+# if st.button("Search"):
+#     chain = template | model
+#     result = chain.invoke(({
+#     "paper_input": paper_input,
+#     "style_input": style_input,
+#     "length_input": length_input
+# }))
+#     st.write(result.content)    
 
 
