@@ -16,7 +16,7 @@ query = "Who is the aggrsive Indian cricketer?"
 
 doc_embeddings = model.embed_documents(docs)
 query_embeddings = model.embed_query(query)
-
+# cosine_similarity for semantic search
 similarities = cosine_similarity([query_embeddings], doc_embeddings)[0]  # cosine similarity m hmesa 2d list m input bhejenge but hme 1d list chahiye
 # print("Similarity scores:", similarities)
 # most_similar_doc_index = np.argmax(similarities)
