@@ -6,7 +6,7 @@ from langchain_core.output_parsers import PydanticOutputParser
 from pydantic import BaseModel , Field
 from typing import Literal
 
-model = ChatOllama(model = 'llama3')
+model = ChatOllama(model = 'gemma3:4b')
 
 parser = StrOutputParser()
 
